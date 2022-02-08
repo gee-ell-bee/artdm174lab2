@@ -1,0 +1,628 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+
+    /* heavier pink:  #e65f73; 
+       deep red: #e60829
+       mid-green: rgb(173, 187, 109) 
+       mid-blue: rgb(143, 176, 197)
+       pale carnation: rgb(250, 232, 224) */
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    --droponetime: .25s;
+    --droponedelay: .25s;
+    --droponelength: -7rem;
+    --droptwolength: calc(var(--droponelength) - 8rem);
+    --droptwodelay: calc(var(--droponetime) + var(--droponedelay));
+    --droptwotime: calc(var(--droponetime) * 2);
+    --dropthreedelay: calc(var(--droptwodelay) + var(--droptwotime));
+    --dropthreelength: calc(var(--droptwolength) - 10rem);
+    --dropthreetime: calc(var(--droptwotime) * 2);
+    --dropfourdelay: calc(var(--dropthreedelay) + var(--dropthreetime));
+    --dropfourlength: calc(var(--dropthreelength) - 38rem);
+    --dropfourtime: calc(var(--dropthreetime) * 2);
+    --dropfivedelay: calc(var(--dropfourdelay) + var(--dropfourtime));
+    --dropfivelength: calc(var(--dropfourlength) - 40rem);
+    --dropfivetime: calc(var(--dropfourtime) * 2);
+}
+
+/* #region mobile */
+body {
+    background-color:rgb(252, 246, 236);
+    color: rgb(2, 105, 173);
+    font-family:'Source Serif Pro', Helvetica, sans-serif;
+    font-size: 20px;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.096);
+    line-height: 1.5;
+    margin: 0;
+}
+
+a {
+    color: rgb(2, 105, 173);
+    text-decoration: none;
+    transition: all 1s ease-in-out;
+}
+
+main {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 0 auto;
+    padding: 1.5rem 0 0 0;
+    display: inline;
+}
+
+
+h2 {
+    padding-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+h1,
+h2 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+}
+
+nav {
+    width: 100%;
+}
+
+nav ul {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    padding: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+nav li {
+    text-align: center;
+    margin: 1rem auto;
+    height: min-content;
+    list-style: none;
+}
+
+nav a {
+    color:#d86a04;
+    text-decoration-color: #d86b0462;
+    transition: all 1s ease-in-out;
+}
+
+nav a:hover {
+    opacity: .6;
+}
+
+img.image-instagram {
+    mix-blend-mode: color-burn;
+    width: 15px;
+    transition: all 1s ease-in-out;
+}
+
+section {
+    padding: 2rem;
+}
+
+section.ghost {
+    display: none;
+}
+
+section > * {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+section:nth-of-type(1) {
+    transform: translateY(var(--droponelength));
+    text-align: center;
+    animation: dropone var(--droponetime) ease-out var(--droponedelay);
+    animation-fill-mode: forwards;
+}
+
+section.page-header {
+    background-color: rgb(255, 212, 206);
+    color:rgb(212, 66, 8);
+}
+
+section.navigation {
+    transform: translateY(var(--droptwolength));
+    background-color:rgb(253, 217, 185);
+    display: flex;
+    flex-flow: row nowrap;
+    color: rgb(177, 83, 1);
+    animation: droptwo var(--droptwotime) ease-out var(--droptwodelay);
+    animation-fill-mode: forwards;
+}
+
+section.intro {
+    transform:translateY(var(--dropthreelength));
+    background-color:rgb(253, 248, 200);
+    color:rgb(204, 116, 1);
+    animation: dropthree var(--dropthreetime) ease-in-out var(--dropthreedelay);
+    animation-fill-mode: forwards;
+}
+
+section.labs {
+    transform: translateY(var(--dropfourlength));
+    background-color:rgb(220, 240, 220);
+    color:rgb(35, 117, 128);
+    animation: dropfour var(--dropfourtime) ease-in-out var(--dropfourdelay);
+    animation-fill-mode: forwards;
+}
+
+/* #region lab lis */
+
+    section.labs li a[href] {
+        background:rgb(158, 229, 238);
+        transition: background-color 1s ease-in-out;
+    }
+
+    section.labs li.r a:hover {
+        background-image: url(images/previews/preview-labreview.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        animation: labshover 1s ease-in-out 0;
+    }
+
+    section.labs li.one a:hover {
+        background: url(images/previews/preview-lab1.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    section.labs li.two a:hover {
+        background: url(images/previews/preview-lab1.png) center/cover no-repeat;
+    }
+/* #endregion */
+
+section.projects {
+    opacity: 0;
+    background-color: lightcyan;
+    animation: dropfive var(--dropfivetime) ease-out var(--dropfivedelay);
+    animation-fill-mode: forwards;
+}
+
+/* #region project lis */
+
+    section.projects li a[href] {
+        background:rgb(209, 238, 164);
+        transition: background-color 1s ease-in-out;
+    }
+    section.projects li.one a:hover {
+        background: rgb(209, 238, 164) url(images/previews/preview-lab1.png) bottom/cover no-repeat;
+    }
+
+/* #endregion */
+
+ol {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 0;
+}
+
+ol li {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    border: 1px dashed;
+    margin: .5rem;
+    width: 9rem;
+    height: 9rem;
+}
+
+ol li a {
+    width: 100%;
+    height: 100%;
+    padding: .125rem;
+}
+
+ol li a .item-title {
+    text-decoration: underline dotted;
+    color: #000000;
+    text-decoration-color: #0000003b;
+    display: block;
+}
+
+footer {
+    background-color: lavender;
+    color: rgb(55, 55, 143);
+    margin: 0;
+    padding: 1rem 0 .5rem 0;
+    text-align: center;
+    font-size: 1.25rem;
+}
+/* #region li hover animations */
+@keyframes labshover {
+    from {
+        background-color: rgba(158, 229, 238, 1);
+    }
+
+    to {
+        background-color: rgba(158, 229, 238, 0);
+    }
+}
+/* #endregion */
+/* #region page load animations */
+@keyframes dropone {
+    from {
+        transform: translateY(var(--droponelength));
+        opacity: .5;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes droptwo {
+    from {
+        transform: translateY(var(--droptwolength));
+        opacity: .5;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes dropthree {
+    from {
+        transform: translateY(var(--dropthreelength));
+        opacity: .5;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes dropfour {
+    from {
+        transform: translateY(var(--dropfourlength));
+        opacity: .5;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes dropfive {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* #endregion */
+
+@media only screen and (min-width: 950px) {
+
+    html {
+        --droponedelay: .125s;
+        --droponetime: 3.5s;
+        --droponelength: -8rem;
+        --droptwodelay: .5s;
+        --droptwolength: -2rem;
+        --droptwotime: 2s;
+        --dropthreelength: -2rem;
+        --dropthreedelay: 1.5s;
+        --dropthreetime: 1s;
+        --dropfourdelay: 2s;
+        --dropfourlength: 2rem;
+        --dropfourtime: 1s;
+        --dropfivedelay: 2.5s;
+        --dropfivetime: 1s;
+    }
+
+    main {
+        width: 100vw;
+        max-width: 950px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(20, 1fr);
+        grid-auto-rows: 2.5rem;
+    }
+
+    section, footer {
+        border: 1px solid rgb(2, 105, 173);
+    }
+
+    section > * {
+        width: auto;
+        max-width: auto;
+    }
+
+    /*header */
+
+        header {
+            margin: 0;
+        }
+
+        section.page-header {
+            grid-area: 3/1 / span 8/21;
+            width: 100%;
+            padding: 0;
+            border: 0 solid;
+            margin: -3rem 0 -.5rem -3rem;
+            background-color: rgba(0, 0, 0, 0);
+            text-shadow: 0 0 6px rgba(40, 104, 95, 0.5);
+
+            animation-timing-function: ease-in-out;
+            opacity: 0;
+            
+            z-index: 1;
+            transform: translateX(var(--droponelength)) scale(1.5);
+            opacity: 0;
+        }
+        
+        section.ghost {
+            grid-area: 3/1 / span 8/20;
+            padding: 0;
+            border: 0 solid;
+            margin: -3rem 0 -.5rem -2rem;
+            background-color: rgba(0, 0, 0, 0);
+
+            display: block;
+            z-index: 10;
+            pointer-events: none;
+            opacity: .1;
+        }
+
+        /*header h1 */
+
+            h1 {
+                display: block;
+                margin: 0;
+                padding: 0;
+            }
+
+            section.page-header h1,
+            section.ghost h1 {
+                color: rgb(23, 129, 199);
+                text-align: right;
+                position: relative;
+            }
+
+            section.page-header h1.greys:first-letter,
+            section.ghost h1.g {
+                font-size: 17rem;
+                vertical-align: sub;
+                margin: 1rem 0rem -1.5rem 2rem;
+            }
+
+            section.page-header h1.greys,
+            section.ghost h1.reys {
+                font-size: 11rem;
+                letter-spacing: 40px;
+                text-align: start;
+                line-height: 1.25;
+            }
+
+            section.page-header h1.rest,
+            section.ghost h1.rest {
+                font-size: 6rem;
+                letter-spacing: normal;
+                line-height: 1;
+                margin: 0 -2rem 0 0;
+                display: block;
+            }
+            
+
+
+        /* header ghost*/
+
+            section.ghost h1.g::before {
+                content: "G";
+                position: absolute;
+                top: -1rem;
+                left: 1.5rem;
+            }
+            section.ghost h1.reys::before {
+                content: "rey’s";
+                position: absolute;
+                top: 5.75rem;
+                left: 17rem;
+            }
+
+            section.ghost h1.rest::before {
+                content: "ARTDM174 Jump Page";
+                position: absolute;
+                top: 21.75rem;
+                left: 0;
+            }
+            
+    /* nav */
+
+    /* nav bg options:
+        pale orange/peach: rgb(255, 240, 227); 
+        pale/bright green: rgb(244, 255, 227); */
+
+        section.navigation {
+            transform: translateX(var(--droptwolength));
+            animation-timing-function: ease-in-out;
+            opacity: 0;
+            z-index: 5;
+            background-color: rgb(244, 255, 227);
+            border-color: #000;
+            grid-area: 11/5 / 12/span 5;
+            padding: 0;
+            margin: -1.5rem .5rem .5rem -.5rem;
+        }
+
+        nav {
+            width: 100%;
+            height: 100%;
+        }
+
+        nav a {
+            letter-spacing: 1px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        nav ul {
+            height: 100%;
+            justify-content: space-around;
+        }
+
+        nav li {
+            margin: auto;
+            padding-top: .125rem;
+            line-height: 1;
+            border-bottom: 3px dotted #0000003b;
+        }
+
+        img.image-instagram {
+            mix-blend-mode: normal;
+            width: 17px;
+
+            transition: all 1s ease-in-out;
+        }
+
+        nav a:hover {
+            opacity: .6;
+        }
+
+    /* intro */
+
+    section.intro {
+        z-index: 3;
+        color:rgb(2, 105, 173);
+        background-color:hsl(160, 100%, 98%);
+        grid-area: 6/9 / 11/span 7;
+        margin: 0 -.5rem 0 .5rem;
+        padding: 1.5rem 2rem;
+
+        transform: translateY(var(--dropthreelength));
+        opacity: 0;
+        animation-timing-function: ease-in-out;
+    }
+
+    section.intro p {
+        font-size: 20px;
+    }
+    
+    /* labs */
+
+        /* labs bg options:
+            pale sage: rgb(232, 250, 232);
+            pale orange/peach: rgb(255, 240, 227); 
+            pale/bright green: rgb(244, 255, 227); */
+
+        section.labs {
+            z-index: 4;
+            color:rgb(2, 105, 173);
+            background-color: rgb(235, 252, 210);
+            grid-area: 11/11 / 23/20;
+            margin: .5rem -4rem -.5rem 3.5rem;
+
+            transform: translateX(var(--dropfourlength));
+            opacity: 0;
+        }
+
+        section.labs ol li {
+            width: 6rem;
+            height: 6rem;
+        }
+
+    /*projects */
+    section.projects {
+        z-index: 4;
+        grid-area: 12/1/ 24/11;
+        margin: 0 -2rem 0 2rem;
+    }
+
+    footer {
+        z-index: 4;
+        background-color: rgb(224, 252, 183);
+        grid-area: 24/6 / 25/16;
+        margin: 1rem 1rem -1.5rem -1rem;
+        padding: .5rem 0;
+    }
+
+    footer p {
+        margin: 0;
+    }
+
+    /* #region site keyframes desktop */
+
+    @keyframes dropone {
+        from {
+            transform: translateX(var(--droponelength)) scale(1.5);
+            opacity: 0;
+        }
+    
+        to {
+            transform: translateX(0) scale(1);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes droptwo {
+        from {
+            transform: translateX(var(--droptwolength));
+            opacity: 0;
+        }
+    
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes dropthree {
+        from {
+            transform: translateY(var(--dropthreelength));
+            opacity: 0;
+        }
+    
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes dropfour {
+        from {
+            transform: translateX(var(--dropfourlength));
+            opacity: 0;
+        }
+    
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /* @keyframe dropfive is the SAME AS FOR MOBILE */
+
+    /* #endregion*/
+    
+}
