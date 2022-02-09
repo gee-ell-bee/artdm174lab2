@@ -168,27 +168,38 @@ section.labs {
 
     section.labs li a[href] {
         background:rgb(158, 229, 238);
-        transition: background-color 1s ease-in-out;
+        transition: background-color 1s ease-in-out, animation 1s ease-in-out;
     }
 
-    section.labs li.r a:hover {
+    section.labs li[class],
+    section.projects li[class] {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    section.labs li[class] a:hover {
+        background-color: rgba(158, 229, 238, 0);
+    }
+
+    section.labs li.r {
         background-image: url(images/previews/preview-labreview.png);
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        animation: labshover 1s ease-in-out 0;
     }
 
-    section.labs li.one a:hover {
-        background: url(images/previews/preview-lab1.png);
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+    section.labs li.one {
+        background-image: url(images/previews/preview-lab1.png);
     }
 
-    section.labs li.two a:hover {
-        background: url(images/previews/preview-lab1.png) center/cover no-repeat;
+    section.labs li.two {
+        background-image: url(images/previews/preview-lab1.png);
+        background-size: 0%;
     }
+
+    section.labs li.two:hover {
+        animation: zoomin 1s ease-in-out .5s;
+        animation-fill-mode: forwards;
+    }
+
 /* #endregion */
 
 section.projects {
@@ -202,10 +213,21 @@ section.projects {
 
     section.projects li a[href] {
         background:rgb(209, 238, 164);
-        transition: background-color 1s ease-in-out;
+        transition: background-color 1s ease-in-out, animation 1s ease-in-out;
     }
-    section.projects li.one a:hover {
-        background: rgb(209, 238, 164) url(images/previews/preview-lab1.png) bottom/cover no-repeat;
+
+    section.projects li[class] a:hover {
+        background-color: rgba(209, 238, 164, 0);
+    }
+
+    section.projects li.one {
+        background-image: url(images/previews/preview-lab1.png);
+        background-size: 0%;
+    }
+
+    section.projects li.one:hover {
+        animation: zoomin 1s ease-in-out .5s;
+        animation-fill-mode: forwards;
     }
 
 /* #endregion */
@@ -221,8 +243,6 @@ ol li {
     display: flex;
     flex-direction: column;
     text-align: center;
-    justify-content: center;
-    align-content: center;
     border: 1px dashed;
     margin: .5rem;
     width: 9rem;
@@ -251,13 +271,15 @@ footer {
     font-size: 1.25rem;
 }
 /* #region li hover animations */
-@keyframes labshover {
+@keyframes zoomin {
     from {
-        background-color: rgba(158, 229, 238, 1);
+        background-size: 0%;
+        background-position: 50% 40%;
     }
 
     to {
-        background-color: rgba(158, 229, 238, 0);
+        background-size: 200%;
+        background-position: 50% 40%;
     }
 }
 /* #endregion */
